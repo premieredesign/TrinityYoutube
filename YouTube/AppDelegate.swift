@@ -12,12 +12,45 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    /*
+     1. First to get rid of the storyboard and use programmatically, take the window var created and set the UIWindow(frame: UIScreen.main.bounds)
+     2. Second make it visible: -> window?.makeKeyAndVisible()
+     3. Set the rootViewController: -> this can be a navigation controller or View controller etc. "Please see below"
+     */
 
+    internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let layout = UICollectionViewFlowLayout()
+        //layout.scrollDirection = .horizontal
+        
+        window?.rootViewController = UINavigationController(rootViewController: CollectionViewController(collectionViewLayout: layout))
+//        window?.rootViewController = UINavigationController(rootViewController: TestController(collectionViewLayout: layout))
+        
+//        window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //MARK: - Blue Color for Navigation Bar
+        UINavigationBar.appearance().barTintColor = .clear // blue color
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        application.statusBarStyle = .lightContent
+        
+        
+        
+        
+        let statusBarBackground = UIView()
+        statusBarBackground.backgroundColor = .clear
+        
+        window?.addSubview(statusBarBackground)
+        window?.addContraintsWithFormat(format: "H:|[v0]|", views: statusBarBackground)
+        window?.addContraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackground)
+        
         return true
     }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
