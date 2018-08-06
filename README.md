@@ -1,7 +1,7 @@
 # TrinityYoutube
 ![alt text](https://s3.us-east-2.amazonaws.com/tcc-data/youtube.png)
 
-![[Watch](https://s3.us-east-2.amazonaws.com/tcc-data/TrinityApp.MP4)
+![Demo](https://s3.us-east-2.amazonaws.com/tcc-data/TrinityApp.MP4)
 
 
 Created A Youtube App for Trinity Christian Church praise team. 
